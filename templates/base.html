@@ -9,7 +9,11 @@
 <h1>너랑 나랑 카페랑</h1>
 <ul>
     <li><a href="/about">About us</a></li>
+    {% if username %}
+    <li><a href="/logout">로그아웃</a></li>
+    {% else %}
     <li><a href="/login">로그인</a></li>
+    {% endif %}
     <li><a href="/signup">회원가입</a></li>
 </ul>
 
