@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>검색 결과</h2>
+
+{% if cafe_list %}
+    <table border="1">
+        <th>카페이름</th>
+        {% for cafe in cafe_list %}
+        <tr>
+            <td><a href="/cafes/{{ cafe.id }}">{{ cafe.cafe_name }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <p>검색 결과가 없습니다. 다른 키워드로 검색해 보세요!</p>
+    {% endif %}
+    <a href="/"><input type="submit" value="홈"></a>
+
+{% endblock content %}

@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<form action="" method="get">
+<form action="/cafes/results/" method="get">
     {% csrf_token %}
-    <input type="text" name="search_keyword" value="{{ search_keyword }}">
+    <input type="text" name="search_keyword" >
     <input type="submit" value="검색">
 </form>
 
