@@ -2,20 +2,14 @@
 
 {% block content %}
 
-    {% if cafe_list %}
+<h2>전체 카페 리스트</h2>
+
+{% if cafe_list %}
     <table border="1">
         <th>카페이름</th>
-        <th>주소</th>
-        <th>전화번호</th>
-        <th>영업시간</th>
-        <th>메뉴</th>
         {% for cafe in cafe_list %}
         <tr>
-            <td>{{ cafe.cafe_name }}</td>
-            <td>{{ cafe.cafe_address }}</td>
-            <td>{{ cafe.cafe_phone }}</td>
-            <td>{{ cafe.cafe_opening_hours }}</td>
-            <td>{{ cafe.cafe_menu }}</td>
+            <td><a href="/cafes/{{ cafe.id }}">{{ cafe.cafe_name }}</a></td>
         </tr>
         {% endfor %}
     </table>

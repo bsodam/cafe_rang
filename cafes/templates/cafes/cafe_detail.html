@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ cafe.cafe_name }}</h1>
+
+<ul>
+    <li>{{ cafe.cafe_address }}</li>
+    <li>{{ cafe.cafe_phone }}</li>
+    <li>{{ cafe.cafe_opening_hours }}</li>
+    <li>{{ cafe.cafe_menu }}</li>
+</ul>
+{% endblock content %}
