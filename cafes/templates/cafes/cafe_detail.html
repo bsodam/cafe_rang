@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>{{ cafe.cafe_name }}</h1>
+<h2>{{ cafe.cafe_name }}</h2>
 
 <ul>
     <li>{{ cafe.cafe_address }}</li>
@@ -10,4 +10,11 @@
     <li>{{ cafe.cafe_opening_hours }}</li>
     <li>{{ cafe.cafe_menu }}</li>
 </ul>
+
+<h3>리뷰</h3>
+{% if review_list %}
+{% else %}
+<p>리뷰가 아직 없네요~ 첫 번째 리뷰를 써주시겠어요?</p>
+{% endif %}
+<a href=""><input type="button" value="리뷰쓰기"></a>
 {% endblock content %}

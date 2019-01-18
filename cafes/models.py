@@ -8,3 +8,7 @@ class Cafe(models.Model):
     cafe_opening_hours = models.CharField(max_length=100, blank=True)
     cafe_menu = models.TextField(blank=True)
     # cafe_image = models.ImageField(blank=True)
+
+class CafeKeyword(models.Model):
+    cafe_id = models.PositiveIntegerField()
+    cafe_keyword = models.CharField(max_length=30)

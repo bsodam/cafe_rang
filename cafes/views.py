@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from cafes.models import Cafe
+from cafes.models import Cafe, CafeKeyword
 
 # Create your views here.
 class ListView(ListView):
@@ -21,6 +21,22 @@ class ResultListView(ListView):
 
     def get_queryset(self):
         search_keyword = self.request.GET.get('search_keyword','')
-        print("ResultListView called")
-        print(search_keyword)
-        return Cafe.objects.filter(cafe_name__contains=search_keyword)
+
+        queryset_cafe = Cafe.objects.filter(cafe_name__contains=search_keyword)
+
+        keyword_results = CafeKeyword.objects.filter(cafe_keyword__contains=search_keyword).values("cafe_id")
+        queryset_made = False
+        if keyword_results:
+            for keyword_result in keyword_results:
+                if not queryset_made:
+                    queryset_made = True
+                    queryset_keyword = Cafe.objects.filter(id=keyword_result['cafe_id'])
+                else:
+                    queryset_keyword = Cafe.objects.filter(id=keyword_result['cafe_id']) | queryset_keyword
+
+        if queryset_made:
+            result = queryset_cafe | queryset_keyword
+        else:
+            result = queryset_cafe
+
+        return result
