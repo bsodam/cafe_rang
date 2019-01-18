@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if cafe_list %}
+    <table border="1">
+        <th>카페이름</th>
+        <th>주소</th>
+        <th>전화번호</th>
+        <th>영업시간</th>
+        <th>메뉴</th>
+        {% for cafe in cafe_list %}
+        <tr>
+            <td>{{ cafe.cafe_name }}</td>
+            <td>{{ cafe.cafe_address }}</td>
+            <td>{{ cafe.cafe_phone }}</td>
+            <td>{{ cafe.cafe_opening_hours }}</td>
+            <td>{{ cafe.cafe_menu }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+    <p>등록된 카페가 없습니다.</p>
+    {% endif %}
+    <a href="/"><input type="submit" value="홈"></a>
+
+{% endblock content %}
