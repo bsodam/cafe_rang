@@ -25,7 +25,7 @@ SECRET_KEY = '4zf%i%29--7^af__aab0ns@khkjggl9z&cw-k$2%8iww3lshjz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['caferang.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
